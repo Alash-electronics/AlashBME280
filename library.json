@@ -1,0 +1,11 @@
+{
+  "name": "AlashBME280",
+  "version": "1.0.0",
+  "description": "Easy BME280 / BMP280 library: auto address, clear errors (ru/kk/en), no dependencies",
+  "keywords": "BME280, BMP280, temperature, humidity, pressure, altitude, I2C, sensor",
+  "repository": { "type": "git", "url": "https://github.com/Alash-electronics/AlashBME280" },
+  "authors": [{ "name": "Alash Electronics", "email": "alash.electronics@gmail.com" }],
+  "license": "MIT",
+  "frameworks": "arduino",
+  "platforms": "*"
+}

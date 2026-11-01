@@ -68,7 +68,7 @@ class AlashBME280 {
   bool hasHumidity() const { return _chip == CHIP_BME280; }
   uint8_t address() const { return _addr; }
   Error error() const { return _err; }
-  const char *errorText();                       // понятное описание последней ошибки
+  const __FlashStringHelper *errorText();        // понятное описание последней ошибки (текст во флеш-памяти)
   void diagnose(Print &out);                     // печатает подсказки и список найденных I2C-устройств
 
  private:

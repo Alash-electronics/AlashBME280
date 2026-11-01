@@ -46,8 +46,8 @@ int main() {
   g_bme.present = false;
   AlashBME280 none; CHECK(!none.begin()); CHECK(none.error() == AlashBME280::ERR_NO_DEVICE);
   CHECK(isnan(none.temperature()));
-  none.setLanguage(AlashBME280::LANG_KK); printf("kk: %s\n", none.errorText());
-  none.setLanguage(AlashBME280::LANG_EN); printf("en: %s\n", none.errorText());
+  none.setLanguage(AlashBME280::LANG_KK); printf("kk: %s\n", (const char *)none.errorText());
+  none.setLanguage(AlashBME280::LANG_EN); printf("en: %s\n", (const char *)none.errorText());
 
   // 6) чужой чип на адресе
   g_bme.present = true; g_bme.addr = 0x76; g_bme.load(true); g_bme.reg[0xD0] = 0x61;  // BME680

@@ -4,7 +4,8 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#define F(x) x
+using __FlashStringHelper = char;
+#define F(x) ((const __FlashStringHelper *)(x))
 #define HEX 16
 #define DEC 10
 inline uint32_t g_now = 0;

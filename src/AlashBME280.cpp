@@ -290,26 +290,26 @@ bool AlashBME280::write8(uint8_t reg, uint8_t value) {
 }
 
 // ---- Ошибки и диагностика ----------------------------------------------------
-const char *AlashBME280::errorText() {
+const __FlashStringHelper *AlashBME280::errorText() {
   switch (_err) {
-    case ERR_OK: return "OK";
+    case ERR_OK: return F("OK");
     case ERR_NO_DEVICE:
-      return _lang == LANG_KK ? "Датчик табылмады: сымдарды, қуатты (3.3 В) және SDA/SCL пиндерін тексеріңіз"
-             : _lang == LANG_EN ? "Sensor not found: check wiring, 3.3 V power and the SDA/SCL pins"
-                                : "Датчик не найден: проверьте провода, питание 3.3 В и пины SDA/SCL";
+      return _lang == LANG_KK ? F("Датчик табылмады: сымдарды, қуатты (3.3 В) және SDA/SCL пиндерін тексеріңіз")
+             : _lang == LANG_EN ? F("Sensor not found: check wiring, 3.3 V power and the SDA/SCL pins")
+                                : F("Датчик не найден: проверьте провода, питание 3.3 В и пины SDA/SCL");
     case ERR_WRONG_CHIP:
-      return _lang == LANG_KK ? "Бұл BME280/BMP280 емес (басқа чип жауап береді)"
-             : _lang == LANG_EN ? "This is not a BME280/BMP280 (another chip answers)"
-                                : "Это не BME280/BMP280 (отвечает другой чип)";
+      return _lang == LANG_KK ? F("Бұл BME280/BMP280 емес (басқа чип жауап береді)")
+             : _lang == LANG_EN ? F("This is not a BME280/BMP280 (another chip answers)")
+                                : F("Это не BME280/BMP280 (отвечает другой чип)");
     case ERR_I2C:
-      return _lang == LANG_KK ? "I2C қатесі: сымдардың байланысын және тартқыш резисторларды тексеріңіз"
-             : _lang == LANG_EN ? "I2C error: check connections and pull-up resistors"
-                                : "Ошибка I2C: проверьте контакты и подтяжку линий";
+      return _lang == LANG_KK ? F("I2C қатесі: сымдардың байланысын және тартқыш резисторларды тексеріңіз")
+             : _lang == LANG_EN ? F("I2C error: check connections and pull-up resistors")
+                                : F("Ошибка I2C: проверьте контакты и подтяжку линий");
     case ERR_TIMEOUT:
-      return _lang == LANG_KK ? "Датчик өлшеуді аяқтамады" : _lang == LANG_EN ? "The sensor did not finish measuring"
-                                                                              : "Датчик не закончил измерение";
+      return _lang == LANG_KK ? F("Датчик өлшеуді аяқтамады") : _lang == LANG_EN ? F("The sensor did not finish measuring")
+                                                                              : F("Датчик не закончил измерение");
   }
-  return "";
+  return F("");
 }
 
 void AlashBME280::diagnose(Print &out) {
